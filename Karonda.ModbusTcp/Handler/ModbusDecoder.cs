@@ -2,6 +2,7 @@
 using DotNetty.Codecs;
 using DotNetty.Transport.Channels;
 using Karonda.ModbusTcp.Entity;
+using Karonda.ModbusTcp.Entity.Function;
 using Karonda.ModbusTcp.Entity.Function.Request;
 using Karonda.ModbusTcp.Entity.Function.Response;
 using System;
@@ -13,6 +14,7 @@ namespace Karonda.ModbusTcp.Handler
     public class ModbusDecoder : ByteToMessageDecoder
     {
         private bool isServerMode;
+        private readonly short MaxFunctionCode = 0x80;
 
         public ModbusDecoder(bool isServerMode)
         {
@@ -39,13 +41,19 @@ namespace Karonda.ModbusTcp.Handler
             }
 
 
-            if (function != null)
+            if (functionCode >= MaxFunctionCode)
             {
-                function.Decode(input);
-                ModbusFrame frame = new ModbusFrame(header, function);
-
-                output.Add(frame);
+                function = new ExceptionFunction(functionCode);
             }
+            else if(function == null)
+            {
+                function = new ExceptionFunction(functionCode, 0x01);
+            }
+
+            function.Decode(input);
+            ModbusFrame frame = new ModbusFrame(header, function);
+
+            output.Add(frame);
         }
     }
 }
