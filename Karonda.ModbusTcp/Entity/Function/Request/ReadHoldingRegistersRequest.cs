@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Karonda.ModbusTcp.Entity.Function.Request
 {
-    public class ReadHoldingRegistersRequest : AddressQuantityBase
+    public class ReadHoldingRegistersRequest : ReadWriteMultiple
     {
         public ReadHoldingRegistersRequest()
             : base((short)ModbusCommand.ReadHoldingRegisters)

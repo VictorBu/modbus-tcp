@@ -5,17 +5,17 @@ using System.Text;
 
 namespace Karonda.ModbusTcp.Entity.Function
 {
-    public abstract class AddressQuantityBase : ModbusFunction
+    public abstract class ReadWriteMultiple : ModbusFunction
     {
         public ushort StartingAddress { get; protected set; }
         public ushort Quantity { get; protected set; }
 
-        public AddressQuantityBase(short functionCode)
+        public ReadWriteMultiple(short functionCode)
             : base(functionCode)
         {
         }
 
-        public AddressQuantityBase(short functionCode, ushort startingAddress, ushort quantity)
+        public ReadWriteMultiple(short functionCode, ushort startingAddress, ushort quantity)
             : base(functionCode)
         {
             StartingAddress = startingAddress;
