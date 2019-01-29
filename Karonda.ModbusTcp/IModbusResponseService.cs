@@ -9,5 +9,7 @@ namespace Karonda.ModbusTcp
     public interface IModbusResponseService
     {
         ModbusFunction ReadHoldingRegisters(ReadHoldingRegistersRequest request);
+
+        ModbusFunction ReadCoils(ReadCoilsRequest request);
     }
 }

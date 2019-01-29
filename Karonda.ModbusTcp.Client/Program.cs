@@ -1,5 +1,6 @@
 ﻿using DotNetty.Common.Internal.Logging;
 using Karonda.ModbusTcp.Entity;
+using Karonda.ModbusTcp.Entity.Function.Response;
 using Microsoft.Extensions.Logging.Console;
 using System;
 using System.Threading.Tasks;
@@ -32,15 +33,23 @@ namespace Karonda.ModbusTcp.Client
 
                     Console.WriteLine("<------------------------------------------------------->");
                     var command = Convert.ToInt32(line);
+                    ModbusFunction response = null;
                     switch(command)
                     {
                         case 1:
+                            ushort registerQuantity = 0x000A;
+                            response = client.ReadCoils(0x0000, registerQuantity);
+                            var coils = (response as ReadCoilsResponse).Coils;
+                            for(int i =0;i< registerQuantity; i++)
+                            {
+                                Console.WriteLine(coils[i]);
+                            }
                             break;
                         case 2:
                             break;
                         case 3:
-                            var response = client.ReadHoldingRegisters(0x0000, 0x000A);
-                            foreach(var register in response.Registers)
+                            response = client.ReadHoldingRegisters(0x0000, 0x000A);
+                            foreach(var register in (response as ReadHoldingRegistersResponse).Registers)
                             {
                                 Console.WriteLine(register);
                             }

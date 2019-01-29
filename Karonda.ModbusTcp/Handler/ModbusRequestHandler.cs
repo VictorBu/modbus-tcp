@@ -20,7 +20,12 @@ namespace Karonda.ModbusTcp.Handler
             var function = msg.Function;
             ModbusFunction response = null;
 
-            if(function is ReadHoldingRegistersRequest)
+            if(function is ReadCoilsRequest)
+            {
+                var request = (ReadCoilsRequest)function;
+                response = responseService.ReadCoils(request);
+            }
+            else if(function is ReadHoldingRegistersRequest)
             {
                 var request = (ReadHoldingRegistersRequest)function;
                 response = responseService.ReadHoldingRegisters(request);

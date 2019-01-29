@@ -127,10 +127,24 @@ namespace Karonda.ModbusTcp
             }
         }
 
+        public ushort ReadCoilsAsync(ushort registerStartingAddress, ushort registerQuantity)
+        {
+            var function = new ReadCoilsRequest(registerStartingAddress, registerQuantity);
+            return CallModbusFunction(function);
+        }
+
         public ushort ReadHoldingRegistersAsync(ushort registerStartingAddress, ushort registerQuantity)
         {
             var function = new ReadHoldingRegistersRequest(registerStartingAddress, registerQuantity);
             return CallModbusFunction(function);
+        }
+
+
+
+        public ReadCoilsResponse ReadCoils(ushort registerStartingAddress, ushort registerQuantity)
+        {
+            var function = new ReadCoilsRequest(registerStartingAddress, registerQuantity);
+            return CallModbusFunctionSync<ReadCoilsResponse>(function);
         }
 
         public ReadHoldingRegistersResponse ReadHoldingRegisters(ushort registerStartingAddress, ushort registerQuantity)
@@ -138,6 +152,7 @@ namespace Karonda.ModbusTcp
             var function = new ReadHoldingRegistersRequest(registerStartingAddress, registerQuantity);
             return CallModbusFunctionSync<ReadHoldingRegistersResponse>(function);
         }
+
     }
 
 

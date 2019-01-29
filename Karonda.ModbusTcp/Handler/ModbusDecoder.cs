@@ -34,6 +34,10 @@ namespace Karonda.ModbusTcp.Handler
 
             switch ((ModbusCommand)functionCode)
             {
+                case ModbusCommand.ReadCoils:
+                    if (isServerMode) function = new ReadCoilsRequest();
+                    else function = new ReadCoilsResponse();
+                    break;
                 case ModbusCommand.ReadHoldingRegisters:
                     if (isServerMode) function = new ReadHoldingRegistersRequest();
                     else function = new ReadHoldingRegistersResponse();
