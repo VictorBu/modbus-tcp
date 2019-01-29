@@ -16,7 +16,7 @@ namespace Karonda.ModbusTcp.Client
 
             try
             {
-                client.Connect().Wait();
+                await client.Connect();
 
                 while(true)
                 {
@@ -59,7 +59,7 @@ namespace Karonda.ModbusTcp.Client
 
                 }
 
-                client.Close().Wait();
+                await client.Close();
 
                 Console.ReadLine();
             }

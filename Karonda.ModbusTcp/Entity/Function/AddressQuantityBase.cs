@@ -7,8 +7,8 @@ namespace Karonda.ModbusTcp.Entity.Function
 {
     public abstract class AddressQuantityBase : ModbusFunction
     {
-        protected ushort startingAddress;
-        protected ushort quantity;
+        public ushort StartingAddress { get; protected set; }
+        public ushort Quantity { get; protected set; }
 
         public AddressQuantityBase(short functionCode)
             : base(functionCode)
@@ -18,8 +18,8 @@ namespace Karonda.ModbusTcp.Entity.Function
         public AddressQuantityBase(short functionCode, ushort startingAddress, ushort quantity)
             : base(functionCode)
         {
-            this.startingAddress = startingAddress;
-            this.quantity = quantity;
+            StartingAddress = startingAddress;
+            Quantity = quantity;
         }
 
         public override int CalculateLength()
@@ -28,16 +28,16 @@ namespace Karonda.ModbusTcp.Entity.Function
         }
         public override void Decode(IByteBuffer buffer)
         {
-            startingAddress = buffer.ReadUnsignedShort();
-            quantity = buffer.ReadUnsignedShort();
+            StartingAddress = buffer.ReadUnsignedShort();
+            Quantity = buffer.ReadUnsignedShort();
         }
         public override IByteBuffer Encode()
         {
             IByteBuffer buffer = Unpooled.Buffer();
             buffer.WriteByte(FunctionCode);
 
-            buffer.WriteUnsignedShort(startingAddress);
-            buffer.WriteUnsignedShort(quantity);
+            buffer.WriteUnsignedShort(StartingAddress);
+            buffer.WriteUnsignedShort(Quantity);
 
             return buffer;
         }
