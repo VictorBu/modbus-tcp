@@ -14,13 +14,13 @@ namespace Karonda.ModbusTcp
 {
     public class ModbusServer
     {
-        private IModbusResponseService responseService;
+        private ModbusResponseService responseService;
         private ServerState serverState;
         public int Port { get; }
         public IChannel Channel { get; private set; }
         private IEventLoopGroup bossGroup;
         private IEventLoopGroup workerGroup;
-        public ModbusServer(IModbusResponseService responseService, int port)
+        public ModbusServer(ModbusResponseService responseService, int port = 502)
         {
             this.responseService = responseService;
             Port = port;

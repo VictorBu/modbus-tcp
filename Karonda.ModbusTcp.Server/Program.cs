@@ -12,7 +12,7 @@ namespace Karonda.ModbusTcp.Server
             //InternalLoggerFactory.DefaultFactory.AddProvider(new ConsoleLoggerProvider((s, level) => true, false));
 
             ModbusResponse response = new ModbusResponse();
-            ModbusServer server = new ModbusServer(response, 502);
+            ModbusServer server = new ModbusServer(response);
 
             await server.Start();
 

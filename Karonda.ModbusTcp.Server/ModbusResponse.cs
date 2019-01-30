@@ -8,9 +8,9 @@ using Karonda.ModbusTcp.Entity.Function.Response;
 
 namespace Karonda.ModbusTcp.Server
 {
-    public class ModbusResponse : IModbusResponseService
+    public class ModbusResponse : ModbusResponseService
     {
-        public ModbusFunction ReadCoils(ReadCoilsRequest request)
+        public override ModbusFunction ReadCoils(ReadCoilsRequest request)
         {
             var coilArray = ReadCoilsOrInputs(request.Quantity);
             var response = new ReadCoilsResponse(coilArray);
@@ -18,7 +18,7 @@ namespace Karonda.ModbusTcp.Server
             return response;
         }
 
-        public ModbusFunction ReadDiscreteInputs(ReadDiscreteInputsRequest request)
+        public override ModbusFunction ReadDiscreteInputs(ReadDiscreteInputsRequest request)
         {
             var inputArray = ReadCoilsOrInputs(request.Quantity);
             var response = new ReadDiscreteInputsResponse(inputArray);
@@ -26,7 +26,7 @@ namespace Karonda.ModbusTcp.Server
             return response;
         }
 
-        public ModbusFunction ReadHoldingRegisters(ReadHoldingRegistersRequest request)
+        public override ModbusFunction ReadHoldingRegisters(ReadHoldingRegistersRequest request)
         {
             var registers = ReadRegisters(request.Quantity);
             var response = new ReadHoldingRegistersResponse(registers);
@@ -34,7 +34,7 @@ namespace Karonda.ModbusTcp.Server
             return response;
         }
 
-        public ModbusFunction ReadInputRegisters(ReadInputRegistersRequest request)
+        public override ModbusFunction ReadInputRegisters(ReadInputRegistersRequest request)
         {
             var registers = ReadRegisters(request.Quantity);
             var response = new ReadInputRegistersResponse(registers);

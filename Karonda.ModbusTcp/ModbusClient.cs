@@ -25,7 +25,7 @@ namespace Karonda.ModbusTcp
         private ConnectionState connectionState;
         private ushort transactionIdentifier;
 
-        public ModbusClient(string ip, int port, short unitIdentifier)
+        public ModbusClient(short unitIdentifier, string ip, int port = 502)
         {
             Ip = ip;
             Port = port;

@@ -13,7 +13,7 @@ namespace Karonda.ModbusTcp.Client
         {
             //InternalLoggerFactory.DefaultFactory.AddProvider(new ConsoleLoggerProvider((s, level) => true, false));
 
-            ModbusClient client = new ModbusClient("127.0.0.1", 502, 0x01);
+            ModbusClient client = new ModbusClient(0x01, "127.0.0.1");
 
             try
             {

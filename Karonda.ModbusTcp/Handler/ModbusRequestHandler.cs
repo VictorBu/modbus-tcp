@@ -9,8 +9,8 @@ namespace Karonda.ModbusTcp.Handler
 {
     public class ModbusRequestHandler : SimpleChannelInboundHandler<ModbusFrame>
     {
-        private IModbusResponseService responseService;
-        public ModbusRequestHandler(IModbusResponseService responseService)
+        private ModbusResponseService responseService;
+        public ModbusRequestHandler(ModbusResponseService responseService)
         {
             this.responseService = responseService;
         }
@@ -18,33 +18,7 @@ namespace Karonda.ModbusTcp.Handler
         protected override void ChannelRead0(IChannelHandlerContext ctx, ModbusFrame msg)
         {
             var function = msg.Function;
-            ModbusFunction response = null;
-
-            if(function is ReadCoilsRequest)
-            {
-                var request = (ReadCoilsRequest)function;
-                response = responseService.ReadCoils(request);
-            }
-            else if(function is ReadDiscreteInputsRequest)
-            {
-                var request = (ReadDiscreteInputsRequest)function;
-                response = responseService.ReadDiscreteInputs(request);
-            }
-            else if(function is ReadHoldingRegistersRequest)
-            {
-                var request = (ReadHoldingRegistersRequest)function;
-                response = responseService.ReadHoldingRegisters(request);
-
-            }
-            else if(function is ReadInputRegistersRequest)
-            {
-                var request = (ReadInputRegistersRequest)function;
-                response = responseService.ReadInputRegisters(request);
-            }
-            else
-            {
-                throw new Exception("Function Not Support");
-            }
+            var  response = responseService.Execute(function);
 
             var header = msg.Header;
             var frame = new ModbusFrame(header, response);
