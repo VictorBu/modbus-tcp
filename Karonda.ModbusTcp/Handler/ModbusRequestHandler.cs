@@ -36,6 +36,11 @@ namespace Karonda.ModbusTcp.Handler
                 response = responseService.ReadHoldingRegisters(request);
 
             }
+            else if(function is ReadInputRegistersRequest)
+            {
+                var request = (ReadInputRegistersRequest)function;
+                response = responseService.ReadInputRegisters(request);
+            }
             else
             {
                 throw new Exception("Function Not Support");

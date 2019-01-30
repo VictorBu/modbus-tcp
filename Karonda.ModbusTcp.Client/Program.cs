@@ -64,6 +64,11 @@ namespace Karonda.ModbusTcp.Client
                             }
                             break;
                         case 4:
+                            response = client.ReadInputRegisters(startingAddress, quantity);
+                            foreach (var register in (response as ReadInputRegistersResponse).Registers)
+                            {
+                                Console.WriteLine(register);
+                            }
                             break;
                         case 5:
                             break;

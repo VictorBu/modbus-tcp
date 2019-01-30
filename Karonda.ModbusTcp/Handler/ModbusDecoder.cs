@@ -46,6 +46,10 @@ namespace Karonda.ModbusTcp.Handler
                     if (isServerMode) function = new ReadHoldingRegistersRequest();
                     else function = new ReadHoldingRegistersResponse();
                     break;
+                case ModbusCommand.ReadInputRegisters:
+                    if (isServerMode) function = new ReadInputRegistersRequest();
+                    else function = new ReadInputRegistersResponse();
+                    break;
             }
 
 

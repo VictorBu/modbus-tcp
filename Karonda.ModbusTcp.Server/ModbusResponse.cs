@@ -28,15 +28,16 @@ namespace Karonda.ModbusTcp.Server
 
         public ModbusFunction ReadHoldingRegisters(ReadHoldingRegistersRequest request)
         {
-            var registers = new ushort[request.Quantity];
-
-            Random ran = new Random();
-            for (int i=0;i<registers.Length;i++)
-            {
-                registers[i] = (ushort)ran.Next(ushort.MinValue, ushort.MaxValue);
-            }
-
+            var registers = ReadRegisters(request.Quantity);
             var response = new ReadHoldingRegistersResponse(registers);
+
+            return response;
+        }
+
+        public ModbusFunction ReadInputRegisters(ReadInputRegistersRequest request)
+        {
+            var registers = ReadRegisters(request.Quantity);
+            var response = new ReadInputRegistersResponse(registers);
 
             return response;
         }
@@ -63,6 +64,19 @@ namespace Karonda.ModbusTcp.Server
 
             var arr = new BitArray(coils);
             return arr;
+        }
+
+        private ushort[] ReadRegisters(ushort quantity)
+        {
+            var registers = new ushort[quantity];
+
+            Random ran = new Random();
+            for (int i = 0; i < registers.Length; i++)
+            {
+                registers[i] = (ushort)ran.Next(ushort.MinValue, ushort.MaxValue);
+            }
+
+            return registers;
         }
     }
 }
