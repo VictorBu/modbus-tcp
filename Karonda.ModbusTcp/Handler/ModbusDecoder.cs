@@ -36,11 +36,8 @@ namespace Karonda.ModbusTcp.Handler
             if(Enum.IsDefined(typeof(ModbusCommand), functionCode))
             {
                 var command = Enum.GetName(typeof(ModbusCommand), functionCode);
-                var mode = "Response";
-                if(isServerMode)
-                    mode = "Request";
 
-                function = (ModbusFunction)Activator.CreateInstance(Type.GetType(string.Format(typeName, mode, command)));
+                function = (ModbusFunction)Activator.CreateInstance(Type.GetType(string.Format(typeName, isServerMode ? "Request" : "Response", command)));
             }
 
 

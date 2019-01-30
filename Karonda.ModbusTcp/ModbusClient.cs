@@ -151,6 +151,12 @@ namespace Karonda.ModbusTcp
             return CallModbusFunction(function);
         }
 
+        public ushort WriteSingleCoilAsync(ushort startingAddress, bool state)
+        {
+            var function = new WriteSingleCoilRequest(startingAddress, state);
+            return CallModbusFunction(function);
+        }
+
 
 
         public ReadCoilsResponse ReadCoils(ushort startingAddress, ushort quantity)
@@ -175,6 +181,12 @@ namespace Karonda.ModbusTcp
         {
             var function = new ReadInputRegistersRequest(startingAddress, quantity);
             return CallModbusFunctionSync<ReadInputRegistersResponse>(function);
+        }
+
+        public WriteSingleCoilResponse WriteSingleCoil(ushort startingAddress, bool state)
+        {
+            var function = new WriteSingleCoilRequest(startingAddress, state);
+            return CallModbusFunctionSync<WriteSingleCoilResponse>(function);
         }
 
     }

@@ -37,6 +37,7 @@ namespace Karonda.ModbusTcp.Client
                     ModbusFunction response = null;
                     ushort startingAddress = 0x0000;
                     ushort quantity = 0x000A;
+                    var state = true;
 
                     switch (command)
                     {
@@ -71,6 +72,8 @@ namespace Karonda.ModbusTcp.Client
                             }
                             break;
                         case 5:
+                            response = client.WriteSingleCoil(startingAddress, state);
+                            Console.WriteLine((response as WriteSingleCoilResponse).State == state ? "Successed" : "Failed");
                             break;
                         case 6:
                             break;

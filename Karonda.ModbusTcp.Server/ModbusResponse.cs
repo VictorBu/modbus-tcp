@@ -42,6 +42,12 @@ namespace Karonda.ModbusTcp.Server
             return response;
         }
 
+        public override ModbusFunction WriteSingleCoil(WriteSingleCoilRequest request)
+        {
+            var response = new WriteSingleCoilResponse(request.StartingAddress, request.State);
+            return response;
+        }
+
         private BitArray ReadCoilsOrInputs(ushort quantity)
         {
             var length = quantity + (8 - quantity % 8) % 8;

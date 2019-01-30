@@ -1,35 +1,36 @@
-﻿using DotNetty.Buffers;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using DotNetty.Buffers;
 
 namespace Karonda.ModbusTcp.Entity.Function
 {
-    public abstract class ReadWriteMultiple : ModbusFunction
+    public abstract class WriteSingle : ModbusFunction
     {
         public ushort StartingAddress { get; private set; }
-        public ushort Quantity { get; private set; }
+        public ushort Value { get; private set; }
 
-        public ReadWriteMultiple(short functionCode)
+        public WriteSingle(short functionCode)
             : base(functionCode)
         {
+
         }
 
-        public ReadWriteMultiple(short functionCode, ushort startingAddress, ushort quantity)
+        public WriteSingle(short functionCode, ushort startingAddress, ushort value)
             : base(functionCode)
         {
             StartingAddress = startingAddress;
-            Quantity = quantity;
+            Value = value;
         }
 
         public override int CalculateLength()
         {
-            return 2 + 2; // StartingAddress Length + Quantity Length
+            return 2 + 2; // StartingAddress Length + Value Length
         }
         public override void Decode(IByteBuffer buffer)
         {
             StartingAddress = buffer.ReadUnsignedShort();
-            Quantity = buffer.ReadUnsignedShort();
+            Value = buffer.ReadUnsignedShort();
         }
         public override IByteBuffer Encode()
         {
@@ -37,7 +38,7 @@ namespace Karonda.ModbusTcp.Entity.Function
             buffer.WriteByte(FunctionCode);
 
             buffer.WriteUnsignedShort(StartingAddress);
-            buffer.WriteUnsignedShort(Quantity);
+            buffer.WriteUnsignedShort(Value);
 
             return buffer;
         }
