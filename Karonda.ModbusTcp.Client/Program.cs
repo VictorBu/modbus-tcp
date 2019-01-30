@@ -33,22 +33,31 @@ namespace Karonda.ModbusTcp.Client
 
                     Console.WriteLine("<------------------------------------------------------->");
                     var command = Convert.ToInt32(line);
+
                     ModbusFunction response = null;
-                    switch(command)
+                    ushort startingAddress = 0x0000;
+                    ushort quantity = 0x000A;
+
+                    switch (command)
                     {
-                        case 1:
-                            ushort registerQuantity = 0x000A;
-                            response = client.ReadCoils(0x0000, registerQuantity);
+                        case 1:                            
+                            response = client.ReadCoils(startingAddress, quantity);
                             var coils = (response as ReadCoilsResponse).Coils;
-                            for(int i =0;i< registerQuantity; i++)
+                            for(int i =0;i< quantity; i++)
                             {
                                 Console.WriteLine(coils[i]);
                             }
                             break;
                         case 2:
+                            response = client.ReadDiscreteInputs(startingAddress, quantity);
+                            var inputs = (response as ReadDiscreteInputsResponse).Inputs;
+                            for (int i = 0; i < quantity; i++)
+                            {
+                                Console.WriteLine(inputs[i]);
+                            }
                             break;
                         case 3:
-                            response = client.ReadHoldingRegisters(0x0000, 0x000A);
+                            response = client.ReadHoldingRegisters(startingAddress, quantity);
                             foreach(var register in (response as ReadHoldingRegistersResponse).Registers)
                             {
                                 Console.WriteLine(register);

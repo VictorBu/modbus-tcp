@@ -10,6 +10,8 @@ namespace Karonda.ModbusTcp
     {
         ModbusFunction ReadHoldingRegisters(ReadHoldingRegistersRequest request);
 
+        ModbusFunction ReadDiscreteInputs(ReadDiscreteInputsRequest request);
+
         ModbusFunction ReadCoils(ReadCoilsRequest request);
     }
 }

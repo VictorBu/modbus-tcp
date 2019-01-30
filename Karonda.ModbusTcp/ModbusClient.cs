@@ -127,29 +127,41 @@ namespace Karonda.ModbusTcp
             }
         }
 
-        public ushort ReadCoilsAsync(ushort registerStartingAddress, ushort registerQuantity)
+        public ushort ReadCoilsAsync(ushort startingAddress, ushort quantity)
         {
-            var function = new ReadCoilsRequest(registerStartingAddress, registerQuantity);
+            var function = new ReadCoilsRequest(startingAddress, quantity);
             return CallModbusFunction(function);
         }
 
-        public ushort ReadHoldingRegistersAsync(ushort registerStartingAddress, ushort registerQuantity)
+        public ushort ReadDiscreteInputsAsync(ushort startingAddress, ushort quantity)
         {
-            var function = new ReadHoldingRegistersRequest(registerStartingAddress, registerQuantity);
+            var function = new ReadDiscreteInputsRequest(startingAddress, quantity);
+            return CallModbusFunction(function);
+        }
+
+        public ushort ReadHoldingRegistersAsync(ushort startingAddress, ushort quantity)
+        {
+            var function = new ReadHoldingRegistersRequest(startingAddress, quantity);
             return CallModbusFunction(function);
         }
 
 
 
-        public ReadCoilsResponse ReadCoils(ushort registerStartingAddress, ushort registerQuantity)
+        public ReadCoilsResponse ReadCoils(ushort startingAddress, ushort quantity)
         {
-            var function = new ReadCoilsRequest(registerStartingAddress, registerQuantity);
+            var function = new ReadCoilsRequest(startingAddress, quantity);
             return CallModbusFunctionSync<ReadCoilsResponse>(function);
         }
 
-        public ReadHoldingRegistersResponse ReadHoldingRegisters(ushort registerStartingAddress, ushort registerQuantity)
+        public ReadDiscreteInputsResponse ReadDiscreteInputs(ushort startingAddress, ushort quantity)
         {
-            var function = new ReadHoldingRegistersRequest(registerStartingAddress, registerQuantity);
+            var function = new ReadDiscreteInputsRequest(startingAddress, quantity);
+            return CallModbusFunctionSync<ReadDiscreteInputsResponse>(function);
+        }
+
+        public ReadHoldingRegistersResponse ReadHoldingRegisters(ushort startingAddress, ushort quantity)
+        {
+            var function = new ReadHoldingRegistersRequest(startingAddress, quantity);
             return CallModbusFunctionSync<ReadHoldingRegistersResponse>(function);
         }
 

@@ -12,25 +12,16 @@ namespace Karonda.ModbusTcp.Server
     {
         public ModbusFunction ReadCoils(ReadCoilsRequest request)
         {
-            var length = request.Quantity + (8 - request.Quantity % 8) % 8;
-            var coils = new bool[length];
-
-            Random ran = new Random();
-            // from low to high
-            for (int i = 0; i<coils.Length; i++)
-            {
-                if(i < request.Quantity)
-                {
-                    coils[i] = ran.Next() % 2 == 0;
-                }
-                else
-                {
-                    coils[i] = false;
-                }
-            }
-
-            var coilArray = new BitArray(coils);
+            var coilArray = ReadCoilsOrInputs(request.Quantity);
             var response = new ReadCoilsResponse(coilArray);
+
+            return response;
+        }
+
+        public ModbusFunction ReadDiscreteInputs(ReadDiscreteInputsRequest request)
+        {
+            var inputArray = ReadCoilsOrInputs(request.Quantity);
+            var response = new ReadDiscreteInputsResponse(inputArray);
 
             return response;
         }
@@ -48,6 +39,30 @@ namespace Karonda.ModbusTcp.Server
             var response = new ReadHoldingRegistersResponse(registers);
 
             return response;
+        }
+
+        private BitArray ReadCoilsOrInputs(ushort quantity)
+        {
+            var length = quantity + (8 - quantity % 8) % 8;
+            var coils = new bool[length];
+
+            Random ran = new Random();
+            // from low to high
+            for (int i = 0; i < coils.Length; i++)
+            {
+                if (i < quantity)
+                {
+                    coils[i] = ran.Next() % 2 == 0;
+                    //coils[i] = true;
+                }
+                else
+                {
+                    coils[i] = false;
+                }
+            }
+
+            var arr = new BitArray(coils);
+            return arr;
         }
     }
 }

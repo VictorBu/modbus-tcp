@@ -25,6 +25,11 @@ namespace Karonda.ModbusTcp.Handler
                 var request = (ReadCoilsRequest)function;
                 response = responseService.ReadCoils(request);
             }
+            else if(function is ReadDiscreteInputsRequest)
+            {
+                var request = (ReadDiscreteInputsRequest)function;
+                response = responseService.ReadDiscreteInputs(request);
+            }
             else if(function is ReadHoldingRegistersRequest)
             {
                 var request = (ReadHoldingRegistersRequest)function;
