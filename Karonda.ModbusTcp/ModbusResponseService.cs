@@ -36,6 +36,11 @@ namespace Karonda.ModbusTcp
                 var request = (WriteSingleCoilRequest)function;
                 return WriteSingleCoil(request);
             }
+            else if(function is WriteSingleRegisterRequest)
+            {
+                var request = (WriteSingleRegisterRequest)function;
+                return WriteSingleRegister(request);
+            }
 
             throw new Exception("Function Not Support");
         }
@@ -48,5 +53,7 @@ namespace Karonda.ModbusTcp
         public abstract ModbusFunction ReadInputRegisters(ReadInputRegistersRequest request);
 
         public abstract ModbusFunction WriteSingleCoil(WriteSingleCoilRequest request);
+
+        public abstract ModbusFunction WriteSingleRegister(WriteSingleRegisterRequest request);
     }
 }
