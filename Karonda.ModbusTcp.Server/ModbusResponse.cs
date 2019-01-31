@@ -60,6 +60,12 @@ namespace Karonda.ModbusTcp.Server
             return response;
         }
 
+        public override ModbusFunction WriteMultipleRegisters(WriteMultipleRegistersRequest request)
+        {
+            var response = new WriteMultipleRegistersResponse(request.StartingAddress, request.Quantity);
+            return response;
+        }
+
         private BitArray ReadCoilsOrInputs(ushort quantity)
         {
             var length = quantity + (8 - quantity % 8) % 8;

@@ -86,6 +86,9 @@ namespace Karonda.ModbusTcp.Client
                             Console.WriteLine((response as WriteMultipleCoilsResponse).Quantity == states.Length);
                             break;
                         case 16:
+                            var registers = new ushort[] {1, 2, 3, 4, 5, 6, 7, 8, 9, 0};
+                            response = client.WriteMultipleRegisters(startingAddress, registers);
+                            Console.WriteLine((response as WriteMultipleRegistersResponse).Quantity == registers.Length);
                             break;
                     }
 
