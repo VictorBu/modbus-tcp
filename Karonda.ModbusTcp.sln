@@ -3,11 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28010.2050
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Karonda.ModbusTcp", "Karonda.ModbusTcp\Karonda.ModbusTcp.csproj", "{6D7055D9-D2E6-4D48-9AA1-440E844F34E1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Karonda.ModbusTcp", "Karonda.ModbusTcp\Karonda.ModbusTcp.csproj", "{6D7055D9-D2E6-4D48-9AA1-440E844F34E1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Karonda.ModbusTcp.Client", "Karonda.ModbusTcp.Client\Karonda.ModbusTcp.Client.csproj", "{262F1BBF-A902-4F8B-B367-62388502DDFF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Karonda.ModbusTcp.Client", "Karonda.ModbusTcp.Client\Karonda.ModbusTcp.Client.csproj", "{262F1BBF-A902-4F8B-B367-62388502DDFF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Karonda.ModbusTcp.Server", "Karonda.ModbusTcp.Server\Karonda.ModbusTcp.Server.csproj", "{57CC2EE2-F4DD-4475-947A-D54F9CB33B93}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Karonda.ModbusTcp.Server", "Karonda.ModbusTcp.Server\Karonda.ModbusTcp.Server.csproj", "{57CC2EE2-F4DD-4475-947A-D54F9CB33B93}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{F445E325-BD11-485C-BC4D-A560C9BBA8FE}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "examples", "examples", "{FE0D1E90-583B-4612-8C3A-069CA15CDF69}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -30,6 +34,11 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{6D7055D9-D2E6-4D48-9AA1-440E844F34E1} = {F445E325-BD11-485C-BC4D-A560C9BBA8FE}
+		{262F1BBF-A902-4F8B-B367-62388502DDFF} = {FE0D1E90-583B-4612-8C3A-069CA15CDF69}
+		{57CC2EE2-F4DD-4475-947A-D54F9CB33B93} = {FE0D1E90-583B-4612-8C3A-069CA15CDF69}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {87424D19-0664-43CE-B730-54D88491D865}

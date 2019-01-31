@@ -77,7 +77,7 @@ namespace Karonda.ModbusTcp.Entity.Function
                     break;
             }
 
-            if (string.IsNullOrEmpty(exceptionMessage))
+            if (!string.IsNullOrEmpty(exceptionMessage))
                 throw new ArgumentOutOfRangeException(exceptionMessage);
         }
     }
