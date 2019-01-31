@@ -1,0 +1,165 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="FullSignature">
+  <Class Name="Karonda.ModbusTcp.Entity.Function.Request.ReadCoilsRequest" Collapsed="true">
+    <Position X="35.25" Y="10.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Entity\Function\Request\ReadCoilsRequest.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Karonda.ModbusTcp.Entity.Function.Request.ReadDiscreteInputsRequest" Collapsed="true">
+    <Position X="40.75" Y="10.5" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Entity\Function\Request\ReadDiscreteInputsRequest.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Karonda.ModbusTcp.Entity.Function.Request.ReadHoldingRegistersRequest" Collapsed="true">
+    <Position X="47" Y="10.5" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Entity\Function\Request\ReadHoldingRegistersRequest.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Karonda.ModbusTcp.Entity.Function.Request.ReadInputRegistersRequest" Collapsed="true">
+    <Position X="50.25" Y="10.5" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Entity\Function\Request\ReadInputRegistersRequest.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Karonda.ModbusTcp.Entity.Function.Request.WriteMultipleCoilsRequest" Collapsed="true">
+    <Position X="53.25" Y="10.5" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAABAABgAAAAAAgAAAAAAAAAAAAAAQAAAAAA=</HashCode>
+      <FileName>Entity\Function\Request\WriteMultipleCoilsRequest.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Karonda.ModbusTcp.Entity.Function.Request.WriteMultipleRegistersRequest" Collapsed="true">
+    <Position X="56.25" Y="10.5" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAABAABgAAAAAAAAAAAABAAAAAAAAQAAAAAA=</HashCode>
+      <FileName>Entity\Function\Request\WriteMultipleRegistersRequest.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Karonda.ModbusTcp.Entity.Function.Request.WriteSingleCoilRequest" Collapsed="true">
+    <Position X="49.75" Y="8" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Entity\Function\Request\WriteSingleCoilRequest.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Karonda.ModbusTcp.Entity.Function.Request.WriteSingleRegisterRequest" Collapsed="true">
+    <Position X="43.5" Y="6.5" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Entity\Function\Request\WriteSingleRegisterRequest.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Karonda.ModbusTcp.Entity.Function.Response.ReadCoilsResponse" Collapsed="true">
+    <Position X="54" Y="6.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Entity\Function\Response\ReadCoilsResponse.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Karonda.ModbusTcp.Entity.Function.Response.ReadDiscreteInputsResponse" Collapsed="true">
+    <Position X="56.5" Y="6.5" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Entity\Function\Response\ReadDiscreteInputsResponse.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Karonda.ModbusTcp.Entity.Function.Response.ReadHoldingRegistersResponse" Collapsed="true">
+    <Position X="35.25" Y="6.5" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Entity\Function\Response\ReadHoldingRegistersResponse.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Karonda.ModbusTcp.Entity.Function.Response.ReadInputRegistersResponse" Collapsed="true">
+    <Position X="38.5" Y="6.5" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Entity\Function\Response\ReadInputRegistersResponse.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Karonda.ModbusTcp.Entity.Function.Response.WriteMultipleCoilsResponse" Collapsed="true">
+    <Position X="37.75" Y="10.5" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Entity\Function\Response\WriteMultipleCoilsResponse.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Karonda.ModbusTcp.Entity.Function.Response.WriteMultipleRegistersResponse" Collapsed="true">
+    <Position X="43.75" Y="10.5" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Entity\Function\Response\WriteMultipleRegistersResponse.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Karonda.ModbusTcp.Entity.Function.Response.WriteSingleCoilResponse" Collapsed="true">
+    <Position X="52.5" Y="8" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Entity\Function\Response\WriteSingleCoilResponse.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Karonda.ModbusTcp.Entity.Function.Response.WriteSingleRegisterResponse" Collapsed="true">
+    <Position X="46.5" Y="6.5" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Entity\Function\Response\WriteSingleRegisterResponse.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Karonda.ModbusTcp.Entity.Function.ExceptionFunction" Collapsed="true">
+    <Position X="52" Y="5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAABAAAgEAAAAAAAIgAAAAAAAAAAAQAAAIAA=</HashCode>
+      <FileName>Entity\Function\ExceptionFunction.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Karonda.ModbusTcp.Entity.Function.ReadCoilsInputsResponse" Collapsed="true">
+    <Position X="55.5" Y="5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAABAABgAAAAAAAAAEAAAAAAAAAAAQAAAAAA=</HashCode>
+      <FileName>Entity\Function\ReadCoilsInputsResponse.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Karonda.ModbusTcp.Entity.Function.ReadRegistersResponse" Collapsed="true">
+    <Position X="37.25" Y="5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAABAABgAAAAAAAAAAAABAAAAAAAAQAAAAAA=</HashCode>
+      <FileName>Entity\Function\ReadRegistersResponse.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Karonda.ModbusTcp.Entity.Function.ReadWriteMultiple" Collapsed="true">
+    <Position X="41.5" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABAAQAAAAABAEAgAAAAAAEAAAAAAAAAAAAQAwAAAEIA=</HashCode>
+      <FileName>Entity\Function\ReadWriteMultiple.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Karonda.ModbusTcp.Entity.Function.WriteSingle" Collapsed="true">
+    <Position X="48.25" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAABAEAgAAAAAAAAAAAAAAAAAAAAgQAAAAAA=</HashCode>
+      <FileName>Entity\Function\WriteSingle.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Karonda.ModbusTcp.Entity.Function.WriteSingleCoil" Collapsed="true">
+    <Position X="51.5" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
+      <FileName>Entity\Function\WriteSingleCoil.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Karonda.ModbusTcp.Entity.ModbusFunction" Collapsed="true">
+    <Position X="46.75" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAABAAAgAAAAAAAAAAAAAAAAAAAAARAAAAAA=</HashCode>
+      <FileName>Entity\ModbusFunction.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Microsoft YaHei UI" Size="9" />
+</ClassDiagram>

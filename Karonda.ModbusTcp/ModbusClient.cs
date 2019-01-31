@@ -24,6 +24,7 @@ namespace Karonda.ModbusTcp
         private MultithreadEventLoopGroup group;
         private ConnectionState connectionState;
         private ushort transactionIdentifier;
+        private readonly string handlerName = "response";
 
         public ModbusClient(short unitIdentifier, string ip, int port = 502)
         {
@@ -54,7 +55,7 @@ namespace Karonda.ModbusTcp
                         pipeline.AddLast("encoder", new ModbusEncoder());
                         pipeline.AddLast("decoder", new ModbusDecoder(false));
 
-                        pipeline.AddLast("response", new ModbusResponseHandler());
+                        pipeline.AddLast(handlerName, new ModbusResponseHandler());
                     }));
 
                 connectionState = ConnectionState.Pending;
@@ -106,7 +107,7 @@ namespace Karonda.ModbusTcp
         {
             var transactionIdentifier = CallModbusFunction(function);
 
-            var handler = (ModbusResponseHandler)Channel.Pipeline.Get("response");
+            var handler = (ModbusResponseHandler)Channel.Pipeline.Get(handlerName);
             if (handler == null)
             {
                 throw new Exception("Not connected!");
