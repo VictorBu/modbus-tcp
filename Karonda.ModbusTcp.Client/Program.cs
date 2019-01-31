@@ -81,6 +81,9 @@ namespace Karonda.ModbusTcp.Client
                             Console.WriteLine((response as WriteSingleRegisterResponse).Value == value ? "Successed" : "Failed");
                             break;
                         case 15:
+                            var states = new bool[] { true, true, true, true, true, true, true, true, true, true };
+                            response = client.WriteMultipleCoils(startingAddress, states);
+                            Console.WriteLine((response as WriteMultipleCoilsResponse).Quantity == states.Length);
                             break;
                         case 16:
                             break;
